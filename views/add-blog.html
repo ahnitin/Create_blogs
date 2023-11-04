@@ -19,15 +19,15 @@
         </header>
     <div class="container">
         <h2>Create a Blog</h2>
-        <form action="/add-blog" method="post">
-            <label for="blogTitle">Blog Title</label>
-            <input type="text" id="blogTitle" name="blogTitle" required>
+        <form action="/add-blogs" method="POST">
+            <label for="title">Blog Title</label>
+            <input type="text" id="title" name="title" required>
 
-            <label for="blogAuthor">Blog Author</label>
-            <input type="text" id="blogAuthor" name="blogAuthor" required>
+            <label for="author">Blog Author</label>
+            <input type="text" id="author" name="author" required>
 
-            <label for="blogContent">Blog Content</label>
-            <textarea id="blogContent" name="blogContent" required></textarea>
+            <label for="content">Blog Content</label>
+            <textarea id="content" name="content" required></textarea>
 
             <button type="submit">Submit</button>
         </form>

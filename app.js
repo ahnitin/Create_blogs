@@ -13,6 +13,9 @@ const User = require("./models/user");
 const Comments = require("./models/comments");
 
 app.use(BodyParser.urlencoded({extended: false}));
+app.set('view engine','ejs');
+app.set('views','views');
+
 app.use(express.static(path.join(__dirname,"public")))
 app.use(adminRoutes);
 app.use(blogsRoutes);

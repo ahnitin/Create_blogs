@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
+const blogsController = require("../controller/blogs")
 
-router.get("/blogs",(req,res,next)=>{
-    res.sendFile(path.join(__dirname,"../","views","blog-list.html"));
-})
+router.get("/",blogsController.getblogs);
 
 module.exports  = router;
