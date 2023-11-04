@@ -10,7 +10,7 @@ const errorController = require("./controller/error")
 
 const sequelize = require("./connection/database");
 const User = require("./models/user");
-
+const Comments = require("./models/comments");
 
 app.use(BodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname,"public")))
@@ -19,8 +19,12 @@ app.use(blogsRoutes);
 
 app.use(errorController.errorpage);
 
+User.hasMany(Comments);
+Comments.belongsTo(User);
+
 sequelize
 .sync()
+// .sync({force:true})
 .then(res=>{
     console.log("Success")
 })

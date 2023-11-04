@@ -6,5 +6,9 @@ exports.getAddblog = (req,res,next)=>{
 
 exports.postAddblog = (req,res,next)=>{
     console.log(req.body);
-    res.redirect("/blogs")
+    res.redirect("/");
+}
+
+exports.getblogs = (req,res,next)=>{
+    res.sendFile(path.join(__dirname,"../","views","blog.html"));
 }
