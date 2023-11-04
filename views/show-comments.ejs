@@ -35,8 +35,11 @@
                             <input type="hidden" name="id" value="<%= blog.id %>">
                             <button type="submit"> send</button>
                         </form>
-                        <a class="link-btn" href="/details/<%= blog.id %>">Show Comments...</a>
-                        
+                        <% for(let com of cot){ %>
+                            <% if(com.userId === blog.id) { %>
+                                <h4><%= com.comments %></h4>
+                            <% } %>
+                        <% } %>
                     </div>  
             </details>
             <% } %>

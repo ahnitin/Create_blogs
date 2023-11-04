@@ -7,4 +7,6 @@ router.get("/",blogsController.getblogs);
 
 router.post("/comments",blogsController.postcomments)
 
+router.get("/details/:id",blogsController.showComments);
+
 module.exports  = router;

@@ -23,7 +23,11 @@ app.use(blogsRoutes);
 app.use(errorController.errorpage);
 
 User.hasMany(Comments);
-Comments.belongsTo(User);
+Comments.belongsTo(User,{
+    constraints: true,
+    onDelete: 'CASCADE'
+});
+Comments.hasOne(User);
 
 sequelize
 .sync()

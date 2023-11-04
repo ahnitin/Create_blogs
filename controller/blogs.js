@@ -1,5 +1,6 @@
 const path  = require("path");
 const User = require('../models/user');
+const Comments = require("../models/comments");
 
 exports.getAddblog = (req,res,next)=>{
     res.sendFile(path.join(__dirname,"../","views","add-blog.html"));
@@ -25,13 +26,34 @@ exports.postAddblog = (req,res,next)=>{
 }
 
 exports.getblogs = (req,res,next)=>{
-    // res.sendFile(path.join(__dirname,"../","views","blog.html"));
     User.findAll()
-    .then(blogs=>{
+    .then((blogs,comment)=>{
         res.render('blog',{
+        pageTitle: "allblogs",
+        blogg:blogs,
+        })
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+    
+}
+exports.showComments = (req,res,next)=>{
+    let id  = req.params.id;
+    User.findAll({
+        include:Comments
+    })
+    .then((blogs)=>{
+        Comments.findAll()
+        .then(comment=>{
+            console.log(comment)
+            res.render('show-comments',{
             pageTitle: "allblogs",
             blogg: blogs,
+            cot:comment,
         })
+        })
+
     })
     .catch(err=>{
         console.log(err);
@@ -50,7 +72,7 @@ exports.postcomments = (req,res,next)=>{
         })
     })
     .then(comment=>{
-        console.log(comment);
+        //console.log(comment);
     })
     .catch(err=>{
         console.log(err);
