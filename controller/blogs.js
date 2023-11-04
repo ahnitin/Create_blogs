@@ -25,21 +25,7 @@ exports.postAddblog = (req,res,next)=>{
     }) 
 }
 
-exports.getblogs = (req,res,next)=>{
-    User.findAll()
-    .then((blogs,comment)=>{
-        res.render('blog',{
-        pageTitle: "allblogs",
-        blogg:blogs,
-        })
-    })
-    .catch(err=>{
-        console.log(err);
-    })
-    
-}
-exports.showComments = (req,res,next)=>{
-    let id  = req.params.id;
+exports.getblogs= (req,res,next)=>{
     User.findAll({
         include:Comments
     })
