@@ -7,5 +7,6 @@ router.get("/",blogsController.getblogs);
 
 router.post("/comments",blogsController.postcomments)
 
+router.post("/delete",blogsController.deletecomment)
 
 module.exports  = router;

@@ -27,7 +27,7 @@
             <details>
                 <summary><%= blog.title %></summary>
                     <div class="container1">
-                        <h3><%= blog.author %></h3>
+                        <h3>Author: <%= blog.author %></h3>
                         <p><%= blog.content %></p>
                         <form action="/comments" method="POST">
                             <label for="comments">Comments</label>
@@ -35,9 +35,15 @@
                             <input type="hidden" name="id" value="<%= blog.id %>">
                             <button type="submit"> send</button>
                         </form>
+                        <h2>Comments... </h2>
                         <% for(let com of cot){ %>
                             <% if(com.userId === blog.id) { %>
-                                <h4><%= com.comments %></h4>
+                              
+                              <form action="/delete" method="POST">
+                                <h4><%= com.comments %> <button type="submit">Delete</button> </h4>
+                                <input type="hidden" name="id" id="id" value="<%= com.id %>">
+                                
+                              </form>  
                             <% } %>
                         <% } %>
                     </div>  

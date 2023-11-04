@@ -33,7 +33,7 @@ exports.getblogs= (req,res,next)=>{
         Comments.findAll()
         .then(comment=>{
             console.log(comment)
-            res.render('show-comments',{
+            res.render('blog',{
             pageTitle: "allblogs",
             blogg: blogs,
             cot:comment,
@@ -64,5 +64,15 @@ exports.postcomments = (req,res,next)=>{
         console.log(err);
     })
     console.log(comments,id);
+    res.redirect("/")
+}
+
+exports.deletecomment = (req,res,next)=>{
+    const id = req.body.id;
+    Comments.destroy({where:{id:id}})
+    .then(res=>{
+        console.log("deleted")
+    })
+    .catch(err=>console.log(err));
     res.redirect("/")
 }
