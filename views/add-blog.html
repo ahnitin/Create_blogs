@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Blog</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="main-header-nav">
+            <ul class="main-header-item-list">
+            <li class="main-header-item"><a href="/">Blogs</a></li>
+            <li class="main-header-item">
+                <a href="/add-blogs">CreateBlog</a>
+            </li>
+            </ul>
+        </nav>
+        </header>
+    <div class="container">
+        <h2>Create a Blog</h2>
+        <form action="/add-blog" method="post">
+            <label for="blogTitle">Blog Title</label>
+            <input type="text" id="blogTitle" name="blogTitle" required>
+
+            <label for="blogAuthor">Blog Author</label>
+            <input type="text" id="blogAuthor" name="blogAuthor" required>
+
+            <label for="blogContent">Blog Content</label>
+            <textarea id="blogContent" name="blogContent" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
