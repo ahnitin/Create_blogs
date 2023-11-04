@@ -29,10 +29,14 @@
                     <div class="container1">
                         <h3><%= blog.author %></h3>
                         <p><%= blog.content %></p>
-                        <form>
+                        <form action="/comments" method="POST">
                             <label for="comments">Comments</label>
-                            <input type="text" name="comments">
+                            <input type="text" name="comments" placeholder="Write a Comment">
+                            <input type="hidden" name="id" value="<%= blog.id %>">
+                            <button type="submit"> send</button>
                         </form>
+                        <h4><%= blog.comment %></h4>
+                        
                     </div>  
             </details>
             <% } %>

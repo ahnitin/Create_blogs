@@ -38,3 +38,23 @@ exports.getblogs = (req,res,next)=>{
     })
     
 }
+
+exports.postcomments = (req,res,next)=>{
+    const comments = req.body.comments;
+    const id = req.body.id;
+
+    User.findByPk(id)
+    .then(user=>{
+        return user.createComment({
+            comments:comments,
+        })
+    })
+    .then(comment=>{
+        console.log(comment);
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+    console.log(comments,id);
+    res.redirect("/")
+}
